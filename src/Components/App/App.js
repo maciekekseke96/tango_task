@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 
 function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <div>
+      <h1>Hello World</h1>
+      <h1>App Successfully deployed</h1>
+    </div>
+  );
 }
 
 export default App;
