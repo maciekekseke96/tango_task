@@ -1,0 +1,8 @@
+@import "./../../styles/colors";
+
+body {
+  background-color: $dark_color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
