@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bookDetailsActions } from "./../../../../redux-ducks/bookDetails/index";
 import "./TableContent.scss";
 
-const TableContent = ({ stateDataToDisplay }) => {
+const TableContent = ({ stateDataToDisplay, setBookUrl }) => {
   return (
     stateDataToDisplay && (
       <table className="charactersTable">
@@ -65,7 +66,22 @@ const TableContent = ({ stateDataToDisplay }) => {
                 <td>
                   <ul>
                     {booksToDisplay.map((book, index) => {
-                      return <li key={index}>ID: {book}</li>;
+                      return (
+                        <li key={index}>
+                          ID:{" "}
+                          <a
+                            onClick={(event) => {
+                              event.preventDefault();
+                              setBookUrl(
+                                `https://www.anapioficeandfire.com/api/books/${book}`
+                              );
+                            }}
+                            href="#"
+                          >
+                            {book}
+                          </a>
+                        </li>
+                      );
                     })}
                   </ul>
                 </td>
@@ -78,9 +94,12 @@ const TableContent = ({ stateDataToDisplay }) => {
     )
   );
 };
+const mapDispatchToProps = (dispatch) => ({
+  setBookUrl: (data) => dispatch(bookDetailsActions.setBookUrl(data)),
+});
 
 const mapStateToProps = (state) => ({
   stateDataToDisplay: state.dataToDisplay.data,
 });
 
-export default connect(mapStateToProps, {})(TableContent);
+export default connect(mapStateToProps, mapDispatchToProps)(TableContent);
