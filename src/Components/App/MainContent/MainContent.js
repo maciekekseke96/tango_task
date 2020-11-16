@@ -1,6 +1,7 @@
 import React from "react";
 import TableContent from "./TableContent/TableContent";
-import FiltersSection from "./filtersSection/FiltersSection";
+import FiltersSection from "./FiltersSection/FiltersSection";
+import Pagination from "./Pagination/Pagination";
 import "./MainContent.scss";
 
 const MainContent = () => {
@@ -8,6 +9,7 @@ const MainContent = () => {
     <div className="mainContent">
       <FiltersSection />
       <TableContent />
+      <Pagination/>
     </div>
   );
 };

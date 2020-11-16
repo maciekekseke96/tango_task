@@ -10,7 +10,7 @@ function App({ statePageSize, statePagination, setDataToDisplay }) {
     fetch(
       `https://www.anapioficeandfire.com/api/characters?page=${statePagination.pageNumber}&pageSize=${statePageSize.pageSize}`
     ).then(resp => resp.json().then(data => {setDataToDisplay(data)}));
-  }, []);
+  }, [statePagination,statePageSize]);
 
   return (
     <div className="app">
