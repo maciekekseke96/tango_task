@@ -11,6 +11,18 @@ const BookDetails = ({ bookUrl, bookDetails, setBookDetails, setBookUrl }) => {
         setBookDetails(data);
       });
   }, [bookUrl]);
+
+  const formatDate = (date) => {
+
+    let myDate = new Date(date);
+    const day = myDate.getDay() + 1;
+    const month = myDate.getMonth() + 1;
+    const year = myDate.getFullYear();
+
+    const formattedDate = `${day}/${month}/${year}`;
+
+    return formattedDate;
+  };
   return (
     <div className="bookDetails">
       <h1>Book Details</h1>
@@ -28,7 +40,7 @@ const BookDetails = ({ bookUrl, bookDetails, setBookDetails, setBookUrl }) => {
             <td>{bookDetails.name}</td>
             <td>{bookDetails.isbn}</td>
             <td>{bookDetails.numberOfPages}</td>
-            <td>{bookDetails.released}</td>
+            <td>{formatDate(bookDetails.released)}</td>
           </tr>
         </tbody>
       </table>
