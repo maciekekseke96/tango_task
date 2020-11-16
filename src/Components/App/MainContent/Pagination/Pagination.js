@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { paginationActions } from "./../../../../redux-ducks/paginationParameters/index";
+import { dataToDisplayActions } from "./../../../../redux-ducks/dataToDisplay/index";
 import "./Pagination.scss";
 
-const Pagination = ({ statePageNumber, setPageNumber }) => {
+const Pagination = ({ statePageNumber, setPageNumber ,setDataToDisplay}) => {
   const handlePageNumber = (instruction) => {
+    setDataToDisplay(false);
     switch (instruction) {
       case "first":
         setPageNumber(1);
@@ -56,6 +58,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setPageNumber: (number) => dispatch(paginationActions.setPageNumber(number)),
+  setDataToDisplay: (data) =>
+  dispatch(dataToDisplayActions.setDataToDisplay(data)),
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);

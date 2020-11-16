@@ -17,6 +17,7 @@ const FiltersSection = ({
   setPageSize,
 }) => {
   const handleDataFilter = () => {
+  
     let newDataToDisplay = [];
     if (stateNameFilter.length < 1) {
       newDataToDisplay = stateDataToDisplay.data.filter(

@@ -1,0 +1,33 @@
+@import "./../../../../styles/colors";
+@import "./../../../../styles/fonts";
+
+.loadingScreen {
+  min-height: 300px;
+  width: 850px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 30px;
+  border-top: 2px dashed $yellow_8;
+  border-bottom: 2px dashed $yellow_8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img {
+    width: 150px;
+    height: 150px;
+    background: url('./../../../../assets/loading.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: loadingAnimation 2s infinite;
+  }
+}
+
+
+@keyframes loadingAnimation {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
