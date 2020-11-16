@@ -8,7 +8,7 @@ import { paginationReducer } from "./redux-ducks/paginationParameters/index";
 const rootReducer = combineReducers({
   APIData: APIDataReducer,
   filters: filtersReducer,
-  pagiSize: pageSizeReducer,
+  pageSize: pageSizeReducer,
   pagination: paginationReducer,
 });
 
