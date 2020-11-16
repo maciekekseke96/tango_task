@@ -1,0 +1,11 @@
+@import "./../../../styles/colors";
+@import "./../../../styles/fonts";
+
+.mainContent {
+  min-height: 300px;
+  width: 100%;
+  background-color: $white_1;
+  margin-top: 30px;
+  border-top: 2px dashed $yellow_8;
+  border-bottom: 2px dashed $yellow_8;
+}

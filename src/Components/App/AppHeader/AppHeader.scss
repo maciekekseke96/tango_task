@@ -5,11 +5,11 @@
   width: 100%;
   height: 50px;
   font-family: "Secular One", sans-serif;
-  color: #1a1405;
+  color: $yellow_8;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $white_1;
-  border-top: 3px groove #1a1405;
-  border-bottom: 3px groove #1a1405;
+  border-top: 3px groove $yellow_8;
+  border-bottom: 3px groove $yellow_8;
 }
