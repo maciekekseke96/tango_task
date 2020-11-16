@@ -46,14 +46,6 @@ const Pagination = ({ statePageNumber, setPageNumber }) => {
       >
         Next Page
       </button>
-      <button
-        onClick={(event) => {
-          event.preventDefault();
-          handlePageNumber("first");
-        }}
-      >
-        Last Page
-      </button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import types from "./types";
 
 const INITIAL_STATE = {
-  pageSize: 10,
+  pageSize: 5,
 };
 
 const pageSizeReducer = (state = INITIAL_STATE, action) => {

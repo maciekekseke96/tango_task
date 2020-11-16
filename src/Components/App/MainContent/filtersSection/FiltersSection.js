@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { filterActions } from "./../../../../redux-ducks/filterParameters/index";
+import { pageSizeActions } from "./../../../../redux-ducks/pageSizeParameter/index";
 import { dataToDisplayActions } from "./../../../../redux-ducks/dataToDisplay/index";
 import "./FiltersSection.scss";
 
@@ -8,11 +9,12 @@ const FiltersSection = ({
   stateGenderFilter,
   stateNameFilter,
   stateDataToDisplay,
+  statePageSize,
+  statePagination,
   setGenderFilter,
   setNameFilter,
   setDataToDisplay,
-  statePageSize,
-  statePagination,
+  setPageSize,
 }) => {
   const handleDataFilter = () => {
     let newDataToDisplay = [];
@@ -33,6 +35,7 @@ const FiltersSection = ({
   };
 
   const clearFilter = () => {
+    setPageSize(5);
     fetch(
       `https://www.anapioficeandfire.com/api/characters?page=${statePagination.pageNumber}&pageSize=${statePageSize.pageSize}`
     ).then((resp) =>
@@ -78,6 +81,20 @@ const FiltersSection = ({
       >
         Clear Filter
       </button>
+      <label>1 Screen Ammount</label>
+      <select
+        className="pageSize"
+        value={statePageSize}
+        onChange={(event) => {
+          setPageSize(event.target.value);
+        }}
+      >
+        <option>5</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+      </select>
     </div>
   );
 };
@@ -86,13 +103,14 @@ const mapStateToProps = (state) => ({
   stateGenderFilter: state.filters.genderFilter,
   stateNameFilter: state.filters.nameFilter,
   stateDataToDisplay: state.dataToDisplay,
-  statePageSize: state.pageSize,
+  statePageSize: state.pageSize.pageSize,
   statePagination: state.pagination,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setGenderFilter: (value) => dispatch(filterActions.setGender(value)),
   setNameFilter: (value) => dispatch(filterActions.setName(value)),
+  setPageSize: (value) => dispatch(pageSizeActions.setPageSize(value)),
   setDataToDisplay: (data) =>
     dispatch(dataToDisplayActions.setDataToDisplay(data)),
 });
