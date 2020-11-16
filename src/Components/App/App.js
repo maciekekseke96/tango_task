@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import AppHeader from "./AppHeader/AppHeader";
 import MainContent from "./MainContent/MainContent";
-import { APIDataActions } from "./../../redux-ducks/dataFromApi/index";
+import { dataToDisplayActions } from "./../../redux-ducks/dataToDisplay/index";
 import { connect } from "react-redux";
 import "./App.scss";
 
-function App({ statePageSize, statePagination, setDataFromAPI }) {
+function App({ statePageSize, statePagination, setDataToDisplay }) {
   useEffect(() => {
     fetch(
       `https://www.anapioficeandfire.com/api/characters?page=${statePagination.pageNumber}&pageSize=${statePageSize.pageSize}`
-    ).then(resp => resp.json().then(data => {setDataFromAPI(data)}));
+    ).then(resp => resp.json().then(data => {setDataToDisplay(data)}));
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setDataFromAPI: (data) => dispatch(APIDataActions.setDataFromAPI(data)),
+  setDataToDisplay: (data) => dispatch(dataToDisplayActions.setDataToDisplay(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

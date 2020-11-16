@@ -4,13 +4,13 @@ const INITIAL_STATE = {
   data: false,
 };
 
-const APIDataReducer = (state = INITIAL_STATE, action) => {
+const dataToDisplayReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case types.SET_DATA_FROM_API:
+    case types.SET_DATA_TO_DISPLAY:
       return { ...state, data: action.item };
     default:
       return state;
   }
 };
 
-export default APIDataReducer;
+export default dataToDisplayReducer;

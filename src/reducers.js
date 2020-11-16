@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 
-import { APIDataReducer } from "./redux-ducks/dataFromApi/index";
+import { dataToDisplayReducer } from "./redux-ducks/dataToDisplay/index";
 import { filtersReducer } from "./redux-ducks/filterParameters/index";
 import { pageSizeReducer } from "./redux-ducks/pageSizeParameter/index";
 import { paginationReducer } from "./redux-ducks/paginationParameters/index";
 
 const rootReducer = combineReducers({
-  APIData: APIDataReducer,
+  dataToDisplay: dataToDisplayReducer,
   filters: filtersReducer,
   pageSize: pageSizeReducer,
   pagination: paginationReducer,

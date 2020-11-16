@@ -1,8 +1,8 @@
 import types from "./types";
 
 const INITIAL_STATE = {
-  genderFilter: false,
-  nameFilter: false,
+  genderFilter: "Male",
+  nameFilter: "",
 };
 
 const filtersReducer = (state = INITIAL_STATE, action) => {

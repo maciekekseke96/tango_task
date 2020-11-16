@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import "./TableContent.scss";
 
-const TableContent = ({ stateDataFromAPI }) => {
+const TableContent = ({ stateDataToDisplay }) => {
   return (
-    stateDataFromAPI && (
+    stateDataToDisplay && (
       <table className="charactersTable">
         <thead>
           <tr>
@@ -16,7 +16,7 @@ const TableContent = ({ stateDataFromAPI }) => {
           </tr>
         </thead>
         <tbody>
-          {stateDataFromAPI.map((character, index) => {
+          {stateDataToDisplay.map((character, index) => {
             const aliases = character.aliases;
             const name = character.name;
             let nameToDisplay;
@@ -80,7 +80,7 @@ const TableContent = ({ stateDataFromAPI }) => {
 };
 
 const mapStateToProps = (state) => ({
-  stateDataFromAPI: state.APIData.data,
+  stateDataToDisplay: state.dataToDisplay.data,
 });
 
 export default connect(mapStateToProps, {})(TableContent);
